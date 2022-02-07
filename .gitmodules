@@ -1,0 +1,3 @@
+[submodule "masm"]
+	path = masm
+	url = git@github.com:0kaguya/MASM.git
