@@ -8,8 +8,24 @@
   in {
     devShell.x86_64-linux = pkgs.mkShell {
       buildInputs = with pkgs; [
-        vim
         emu2
+        (vim_configurable.customize {
+          name = "vim";
+          vimrcConfig.customRC = ''
+            set nocompatible
+            set noundofile
+            set nobackup
+
+            set tabstop=8
+            set shiftwidth=8
+            set expandtab
+            set smarttab
+            set backspace=indent,eol,start
+            
+            syntax on
+            set number
+          '';
+        })
       ];
       shellHook = ''
       alias masm="emu2 masm/MASM.EXE"
