@@ -22,8 +22,12 @@
             set smarttab
             set backspace=indent,eol,start
             
+            filetype plugin indent on
             syntax on
             set number
+            augroup filetypedetect 
+                au! BufRead,BufNewFile *.asm setf masm
+            augroup END
           '';
         })
       ];
